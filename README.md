@@ -2,6 +2,26 @@
 
 Create a list of items in compose in which items can rearranged by dragging vertically
 
+# Setup
+
+#### Step 1. Put Jitpack repository in your gradle build file
+
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+#### Step 2. Add the dependency
+
+```groovy
+dependencies {
+    implementation 'com.github.timeline-notes:compose-draggable-list:1.0.1'
+}
+```
+
 # Usage
 
 ### Create a list
@@ -19,6 +39,7 @@ val foodList = remember {
 ```
 
 ### Non Lazy Draggable List
+
 ```kotlin
 // Use DraggableListIndexed to get index
 DraggableList(items = foodList) { item ->
@@ -36,6 +57,7 @@ DraggableList(items = foodList) { item ->
 ```
 
 ### Lazy Draggable List
+
 ```kotlin
 // Lazy List
 val scope = rememberCoroutineScope()
@@ -64,6 +86,6 @@ LazyColumn {
 }
 ```
 
-`Modifier.dragger()` is a modifier that sets up a draggable modifier on that composabe
-You can use this on the composable that drags the entire item in the column
-for example you could have drag indicator icon with this modifier rather than the whole composable
+`Modifier.dragger()` is a modifier that sets up a draggable modifier on that composabe You can use
+this on the composable that drags the entire item in the column for example you could have drag
+indicator icon with this modifier rather than the whole composable
