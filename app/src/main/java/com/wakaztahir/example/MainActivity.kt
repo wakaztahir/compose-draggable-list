@@ -4,12 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material.Icon
-import androidx.compose.material.TextField
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.wakaztahir.draggablelist.DraggableList
+import com.wakaztahir.draggablelist.draggableItems
 import com.wakaztahir.draggablelist.draggableStateListOf
 import com.wakaztahir.example.ui.theme.DraggableListTheme
 
@@ -28,14 +30,43 @@ class MainActivity : ComponentActivity() {
                     )
                 }
 
-                DraggableList(items = personsList) { item->
-                    Row(Modifier.dragger()) {
-                        TextField(
-                            value = item.name,
-                            onValueChange = {
-                                item.name = it
-                            }
-                        )
+//                // Non Lazy List
+//                DraggableList(items = personsList) { item ->
+//                    Row(Modifier.dragger()) {
+//                        OutlinedTextField(
+//                            modifier = Modifier.fillMaxWidth(),
+//                            value = item.name,
+//                            onValueChange = {
+//                                item.name = it
+//                            },
+//                            colors = TextFieldDefaults.outlinedTextFieldColors(textColor = MaterialTheme.colors.onBackground)
+//                        )
+//                    }
+//                }
+
+                // Lazy List
+                val scope = rememberCoroutineScope()
+                var animationsEnabled by remember { mutableStateOf(true) }
+
+                LazyColumn {
+                    draggableItems(
+                        personsList,
+                        scope = scope,
+                        animationsEnabled = animationsEnabled,
+                        updateAnimationsEnabled = {
+                            animationsEnabled = it
+                        }
+                    ){ item->
+                        Row(Modifier.dragger()) {
+                            OutlinedTextField(
+                                modifier = Modifier.fillMaxWidth(),
+                                value = item.name,
+                                onValueChange = {
+                                    item.name = it
+                                },
+                                colors = TextFieldDefaults.outlinedTextFieldColors(textColor = MaterialTheme.colors.onBackground)
+                            )
+                        }
                     }
                 }
             }
