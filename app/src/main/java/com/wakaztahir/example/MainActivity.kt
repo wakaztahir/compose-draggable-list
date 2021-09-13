@@ -18,20 +18,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DraggableListTheme {
-                val personsList = remember {
+                val foodList = remember {
                     draggableStateListOf(
-                        Person("Shitty Person"),
-                        Person("Good Person"),
-                        Person("Not so Good Person"),
-                        Person("Dick Person"),
-                        Person("Fully Grown Asshole")
+                        Food("Apples"),
+                        Food("Bananas"),
+                        Food("Blueberries"),
+                        Food("Oranges"),
+                        Food("Watermelons")
                     )
                 }
 
                 Column {
 
                     // Non Lazy List
-                    DraggableList(items = personsList) { item ->
+                    DraggableList(items = foodList) { item ->
                         Row(Modifier.dragger()) {
                             OutlinedTextField(
                                 modifier = Modifier.fillMaxWidth(),
@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
 
                     LazyColumn {
                         draggableItems(
-                            personsList,
+                            foodList,
                             scope = scope,
                             animationsEnabled = animationsEnabled,
                             updateAnimationsEnabled = {
@@ -83,6 +83,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-class Person(name: String) {
+class Food(name: String) {
     var name by mutableStateOf(name)
 }
