@@ -47,11 +47,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
-def versionName = "1.0.0"
+def versionName = "1.0.1"
 def artifactName = "draggable-list"
 
-//def githubProperties = new Properties()
-//githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
 
 afterEvaluate {
     publishing {
@@ -63,20 +63,20 @@ afterEvaluate {
                 version = versionName
             }
         }
-//        repositories {
-//            maven {
-//                name = "GithubPackages"
-//                /** Configure path of your package repository on Github
-//                 *  Replace GITHUB_USERID with your/organisation Github userID and REPOSITORY with the repository name on GitHub
-//                 */
-//                url = uri("https://maven.pkg.github.com/timeline-notes/compose-draggable-list")
-//
-//                credentials {
-//                    /**Create github.properties in root project folder file with gpr.usr=GITHUB_USER_ID  & gpr.key=PERSONAL_ACCESS_TOKEN**/
-//                    username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
-//                    password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
-//                }
-//            }
-//        }
+        repositories {
+            maven {
+                name = "GithubPackages"
+                /** Configure path of your package repository on Github
+                 *  Replace GITHUB_USERID with your/organisation Github userID and REPOSITORY with the repository name on GitHub
+                 */
+                url = uri("https://maven.pkg.github.com/timeline-notes/compose-draggable-list")
+
+                credentials {
+                    /**Create github.properties in root project folder file with gpr.usr=GITHUB_USER_ID  & gpr.key=PERSONAL_ACCESS_TOKEN**/
+                    username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                    password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+                }
+            }
+        }
     }
 }
