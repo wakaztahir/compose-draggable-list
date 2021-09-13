@@ -65,5 +65,5 @@ LazyColumn {
 ```
 
 `Modifier.dragger()` is a modifier that sets up a draggable modifier on that composabe
-You can use this to on the composable that drags the entire item in the column
+You can use this on the composable that drags the entire item in the column
 for example you could have drag indicator icon with this modifier rather than the whole composable
