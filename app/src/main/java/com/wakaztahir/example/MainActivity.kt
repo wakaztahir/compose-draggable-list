@@ -3,9 +3,13 @@ package com.wakaztahir.example
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.remember
-import com.wakaztahir.draggablelist.model.ListBlock
-import com.wakaztahir.draggablelist.model.ListItem
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material.Icon
+import androidx.compose.material.TextField
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import com.wakaztahir.draggablelist.DraggableList
 import com.wakaztahir.example.ui.theme.DraggableListTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,17 +17,37 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DraggableListTheme {
-                // rendering a list block
-                val listBlock = remember {
-                    ListBlock().apply {
-                        items.add(ListItem().apply { text = "First Item" })
-                        items.add(ListItem().apply { text = "Second Item" })
-                        items.add(ListItem().apply { text = "Third Item" })
-                        items.add(ListItem().apply { text = "Fourth Item" })
-                        items.add(ListItem().apply { text = "Fifth Item" })
+                val personsList = remember {
+                    mutableStateListOf(
+                        Person("Shitty Person"),
+                        Person("Good Person"),
+                        Person("Not so Good Person"),
+                        Person("Dick Person"),
+                        Person("Fully Grown Asshole")
+                    )
+                }
+
+                DraggableList(items = personsList) { item->
+                    Row {
+                        Icon(
+                            modifier = Modifier.dragger(),
+                            painter = painterResource(id = R.drawable.drag_indicator),
+                            contentDescription = null
+                        )
+                        TextField(
+                            value = item.name,
+                            onValueChange = {
+                                item.name = it
+                            }
+                        )
                     }
                 }
             }
         }
     }
+}
+
+
+class Person(name: String) {
+    var name by mutableStateOf(name)
 }
