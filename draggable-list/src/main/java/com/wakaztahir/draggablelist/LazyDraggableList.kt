@@ -21,12 +21,12 @@ interface LazyDraggableListScope {
     fun Modifier.dragger(): Modifier
 }
 
-fun <T> LazyListScope.draggableItems(
+fun <T> LazyListScope.draggableItemsIndexed(
     items: SnapshotStateList<DraggableListItem<T>>,
     scope: CoroutineScope,
     animationsEnabled: Boolean,
     updateAnimationsEnabled: (Boolean) -> Unit,
-    itemContent: @Composable LazyDraggableListScope.(T) -> Unit
+    itemContent: @Composable LazyDraggableListScope.(Int, T) -> Unit
 ) {
     itemsIndexed(items) { index, item ->
 
@@ -90,7 +90,7 @@ fun <T> LazyListScope.draggableItems(
                         it.height.toDp()
                     }
                 }) {
-            itemContent(scope, item.item)
+            itemContent(scope, index, item.item)
         }
     }
 }
