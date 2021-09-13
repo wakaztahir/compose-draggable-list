@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -48,8 +49,11 @@ internal fun <T> ColumnScope.ListItem(
         }
     }
 
-    Box(modifier = modifier) {
-        content(scope,item.item)
+    Box(modifier = modifier.onSizeChanged {
+        item.itemHeight = with(density) {
+            it.height.toDp()
+        }
+    }) {
+        content(scope, item.item)
     }
-
 }

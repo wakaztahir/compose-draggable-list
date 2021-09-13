@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.wakaztahir.draggablelist.DraggableList
+import com.wakaztahir.draggablelist.draggableStateListOf
 import com.wakaztahir.example.ui.theme.DraggableListTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DraggableListTheme {
                 val personsList = remember {
-                    mutableStateListOf(
+                    draggableStateListOf(
                         Person("Shitty Person"),
                         Person("Good Person"),
                         Person("Not so Good Person"),
@@ -28,12 +29,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 DraggableList(items = personsList) { item->
-                    Row {
-                        Icon(
-                            modifier = Modifier.dragger(),
-                            painter = painterResource(id = R.drawable.drag_indicator),
-                            contentDescription = null
-                        )
+                    Row(Modifier.dragger()) {
                         TextField(
                             value = item.name,
                             onValueChange = {

@@ -17,43 +17,21 @@ interface DraggableListScope {
     fun Modifier.dragger() : Modifier
 }
 
+
 @Composable
 fun <T> DraggableList(
     modifier: Modifier = Modifier,
-    items: SnapshotStateList<T>,
+    items: SnapshotStateList<DraggableListItem<T>>,
     onReplace: (Int, Int) -> Unit = { index, newIndex ->
         val item = items[index]
         items.removeAt(index)
         items.add(newIndex, item)
     },
     content: @Composable DraggableListScope.(T) -> Unit,
-) = DraggableList(
-    modifier = modifier,
-    items = items,
-    onReset = {},
-    onReplace = onReplace,
-    content = content,
-)
-
-@Composable
-fun <T> DraggableList(
-    modifier: Modifier = Modifier,
-    items: List<T>,
-    onReset: (List<T>) -> Unit,
-    onReplace: (Int, Int) -> Unit = { index, newIndex ->
-        val item = items[index]
-        val newList = items.toMutableList()
-        newList.removeAt(index)
-        newList.add(newIndex, item)
-        onReset(newList)
-    },
-    content: @Composable DraggableListScope.(T) -> Unit,
 ) {
     val scope = rememberCoroutineScope()
 
     var animationsEnabled by remember { mutableStateOf(true) }
-
-    val draggableItems = remember(items) { items.map { DraggableListItem(it) } }
 
     /**
      * Rearranges other items as one item is being dragged
@@ -64,7 +42,7 @@ fun <T> DraggableList(
 
         if (yOffset < 0.dp) { // item is going up
             var itemHeights = 0.dp
-            draggableItems.subList(0, index).reversed().forEach { each ->
+            items.subList(0, index).reversed().forEach { each ->
                 itemHeights += each.itemHeight
                 if (itemHeights < (-yOffset + tolerance)) {
                     each.topOffset = item.itemHeight
@@ -74,7 +52,7 @@ fun <T> DraggableList(
             }
         } else { // item is going down
             var itemHeights = 0.dp
-            draggableItems.subList(index + 1, draggableItems.size).forEach { each ->
+            items.subList(index + 1, items.size).forEach { each ->
                 itemHeights += each.itemHeight
                 if ((yOffset + tolerance) > itemHeights) {
                     each.topOffset = -item.itemHeight
@@ -95,14 +73,14 @@ fun <T> DraggableList(
             var itemHeights = 0.dp
             val tolerance = 5.dp
             if (yOffset > 0.dp) { // item is below its current position
-                draggableItems.subList(index + 1, draggableItems.size).forEach { each ->
+                items.subList(index + 1, items.size).forEach { each ->
                     itemHeights += each.itemHeight
                     if ((yOffset + tolerance) > itemHeights) {
                         newIndex++
                     }
                 }
             } else { // item is above its current position
-                draggableItems.subList(0, index).reversed().forEach { each ->
+                items.subList(0, index).reversed().forEach { each ->
                     itemHeights += each.itemHeight
                     if (itemHeights < (-yOffset + tolerance)) {
                         newIndex--
@@ -110,17 +88,17 @@ fun <T> DraggableList(
                 }
             }
 
-            //Resetting offsets todo new draggable items are made , check to remove
-//            draggableItems.forEach { each ->
-//                each.topOffset = 0.dp
-//            }
+            //Resetting offsets
+            items.forEach { each ->
+                each.topOffset = 0.dp
+            }
 
             //Changing Indexes of Items
             onReplace(index, newIndex)
         }
 
     Column(modifier = modifier) {
-        draggableItems.forEachIndexed { index, item ->
+        items.forEachIndexed { index, item ->
 
             val topOffset by animateDpAsState(
                 targetValue = item.topOffset,
@@ -135,10 +113,10 @@ fun <T> DraggableList(
                 item = item,
                 onVerticalDragged = {
                     var aboveHeight = 0.dp
-                    draggableItems.subList(0, index)
+                    items.subList(0, index)
                         .forEach { item -> aboveHeight -= item.itemHeight }
                     var belowHeight = 0.dp
-                    draggableItems.subList(index, draggableItems.size - 1)
+                    items.subList(index, items.size - 1)
                         .forEach { item -> belowHeight += item.itemHeight }
                     if ((yOffset + it) > aboveHeight && (yOffset + it) < belowHeight) {
                         yOffset += it
