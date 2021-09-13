@@ -2,6 +2,12 @@
 
 Create a list of items in compose in which items can rearranged by dragging vertically
 
+# Demo
+
+`slow gif`
+
+![ezgif-4-62f54ddef604](https://user-images.githubusercontent.com/42442700/133121261-45971afc-8afb-42c1-86e2-70103534781c.gif)
+
 # Setup
 
 #### Step 1. Put Jitpack repository in your gradle build file
