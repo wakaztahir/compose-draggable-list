@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml:2:1-103
+INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml:2:1-103
+INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml:2:1-103
+	package
+		ADDED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml:2:70-101
+		INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+		INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+		ADDED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+		INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+		ADDED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml
+		INJECTED from D:\Development\Kotlin\draggable-list\common\src\androidMain\AndroidManifest.xml

@@ -1,0 +1,2 @@
+com/wakaztahir/android/BuildConfig.java
+ com.wakaztahir.android.BuildConfig

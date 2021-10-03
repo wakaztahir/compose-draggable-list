@@ -1,0 +1,2 @@
+com/wakaztahir/common/BuildConfig.java
+ com.wakaztahir.common.BuildConfig
