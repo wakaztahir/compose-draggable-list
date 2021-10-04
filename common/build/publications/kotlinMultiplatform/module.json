@@ -3,7 +3,7 @@
   "component": {
     "group": "com.wakaztahir.draggable-list",
     "module": "common",
-    "version": "1.0",
+    "version": "1.0.3",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.9",
-      "buildId": "rljhe22vpvhlbpzubsxv7xjwnu"
+      "buildId": "7o32c53n7bg65mpov2qbcijoya"
     }
   },
   "variants": [
@@ -53,13 +53,13 @@
       ],
       "files": [
         {
-          "name": "common-metadata-1.0-all.jar",
-          "url": "common-1.0-all.jar",
+          "name": "common-metadata-1.0.3-all.jar",
+          "url": "common-1.0.3-all.jar",
           "size": 740,
-          "sha512": "70f595ec93e545563c7d144d70745ca9e3f410bd83c3db243258c5420c2247b3507282e138a1bad1efae1aa828de3e68836f3811778eb24e556f9ad732e4f307",
-          "sha256": "f5a8e5d2c4a3d82fd53f1c25435f691a8459b4129f579fd5a8158d634d1c3a8f",
-          "sha1": "b30be651dd91dbdce1f2daee33e2ccbb9e2eb758",
-          "md5": "0f6b9f57fce7f89d0fffad209d25eda1"
+          "sha512": "58039bdc355d915e2a45acb719b64170159a22e7370e3730466e8085c8f37c6c213f5c09349bae2ed5af47923bfcd6cbfdc989369cdab8442e32eec95d54c353",
+          "sha256": "fbd5216c2d9f249767b5b3e4874a7742640d4833ab49c834a203df5c83754aba",
+          "sha1": "ca7ddc2dd972ac217ec7cb4a1a2a7416409cfb9a",
+          "md5": "204408ae0ddd925ab64155696ba239c9"
         }
       ]
     },
@@ -101,13 +101,13 @@
       ],
       "files": [
         {
-          "name": "common-1.0.jar",
-          "url": "common-1.0.jar",
-          "size": 5795,
-          "sha512": "c2064f11e0b6fb5c2f1a91ea82c52773735418259132c396c9b2cb931cb94bd66436661856c0be38fed2a587a15a8b578448d0eaec7c9517e68bcee9c99c1f6c",
-          "sha256": "df6b8aef0592371bc0451d86db16bcba14d47bc5e1deb046aad6039f88b943cd",
-          "sha1": "e21eb6c394f5f21a9d32e6e5ffefd2b2b0e74c9a",
-          "md5": "b915c13a292cba802b8b6a34d8b63b6b"
+          "name": "common-1.0.3.jar",
+          "url": "common-1.0.3.jar",
+          "size": 4876,
+          "sha512": "521aa384c7152e487360f46c9c7f33d19cd82ef90bb3a95bad653f06c4b8aeab5f07f0d7c1fbf904088f587d612f114b53f041bebd3d4534cccbe5488e52233b",
+          "sha256": "059bd8329bbe257fc3d8a7ba91b6c08fd019b0e357f04973083fc1afb7419ce5",
+          "sha1": "051d612108a43f8f7cb91fcc5fe422911ef386f2",
+          "md5": "b3feddf57b19655c1c2422ab23750c24"
         }
       ]
     },
@@ -120,10 +120,10 @@
         "org.jetbrains.kotlin.platform.type": "androidJvm"
       },
       "available-at": {
-        "url": "../../common-android/1.0/common-android-1.0.module",
+        "url": "../../common-android-debug/1.0.3/common-android-debug-1.0.3.module",
         "group": "com.wakaztahir.draggable-list",
-        "module": "common-android",
-        "version": "1.0"
+        "module": "common-android-debug",
+        "version": "1.0.3"
       }
     },
     {
@@ -135,10 +135,10 @@
         "org.jetbrains.kotlin.platform.type": "androidJvm"
       },
       "available-at": {
-        "url": "../../common-android/1.0/common-android-1.0.module",
+        "url": "../../common-android-debug/1.0.3/common-android-debug-1.0.3.module",
         "group": "com.wakaztahir.draggable-list",
-        "module": "common-android",
-        "version": "1.0"
+        "module": "common-android-debug",
+        "version": "1.0.3"
       }
     },
     {
@@ -150,10 +150,10 @@
         "org.jetbrains.kotlin.platform.type": "androidJvm"
       },
       "available-at": {
-        "url": "../../common-android/1.0/common-android-1.0.module",
+        "url": "../../common-android/1.0.3/common-android-1.0.3.module",
         "group": "com.wakaztahir.draggable-list",
         "module": "common-android",
-        "version": "1.0"
+        "version": "1.0.3"
       }
     },
     {
@@ -165,10 +165,10 @@
         "org.jetbrains.kotlin.platform.type": "androidJvm"
       },
       "available-at": {
-        "url": "../../common-android/1.0/common-android-1.0.module",
+        "url": "../../common-android/1.0.3/common-android-1.0.3.module",
         "group": "com.wakaztahir.draggable-list",
         "module": "common-android",
-        "version": "1.0"
+        "version": "1.0.3"
       }
     },
     {
@@ -179,10 +179,10 @@
         "org.jetbrains.kotlin.platform.type": "jvm"
       },
       "available-at": {
-        "url": "../../common-desktop/1.0/common-desktop-1.0.module",
+        "url": "../../common-desktop/1.0.3/common-desktop-1.0.3.module",
         "group": "com.wakaztahir.draggable-list",
         "module": "common-desktop",
-        "version": "1.0"
+        "version": "1.0.3"
       }
     },
     {
@@ -193,10 +193,10 @@
         "org.jetbrains.kotlin.platform.type": "jvm"
       },
       "available-at": {
-        "url": "../../common-desktop/1.0/common-desktop-1.0.module",
+        "url": "../../common-desktop/1.0.3/common-desktop-1.0.3.module",
         "group": "com.wakaztahir.draggable-list",
         "module": "common-desktop",
-        "version": "1.0"
+        "version": "1.0.3"
       }
     }
   ]

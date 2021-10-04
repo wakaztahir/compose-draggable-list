@@ -1,4 +1,6 @@
 import org.jetbrains.compose.compose
+import java.io.FileInputStream
+import java.util.*
 
 plugins {
     kotlin("multiplatform")
@@ -9,10 +11,13 @@ plugins {
 }
 
 group = "com.wakaztahir.draggable-list"
-version = "1.0"
+version = "1.0.3"
 
 kotlin {
     android()
+    android {
+        publishLibraryVariants("release","debug")
+    }
     jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
@@ -51,12 +56,37 @@ kotlin {
     }
 }
 
+val artifactName = "draggable-list"
+
+val githubProperties = Properties()
+githubProperties.load(FileInputStream(rootProject.file("github.properties")))
+
+afterEvaluate {
+    publishing {
+        repositories {
+            maven {
+                name = "GithubPackages"
+                /** Configure path of your package repository on Github
+                 *  Replace GITHUB_USERID with your/organisation Github userID and REPOSITORY with the repository name on GitHub
+                 */
+                url = uri("https://maven.pkg.github.com/timeline-notes/compose-draggable-list")
+
+                credentials {
+                    /**Create github.properties in root project folder file with gpr.usr=GITHUB_USER_ID  & gpr.key=PERSONAL_ACCESS_TOKEN**/
+                    username = (githubProperties["gpr.usr"] ?: System.getenv("GPR_USER")).toString()
+                    password = (githubProperties["gpr.key"] ?: System.getenv("GPR_API_KEY")).toString()
+                }
+            }
+        }
+    }
+}
+
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
