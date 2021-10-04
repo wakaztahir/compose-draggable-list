@@ -1,0 +1,132 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../common/1.0/common-1.0.module",
+    "group": "com.wakaztahir.draggable-list",
+    "module": "common",
+    "version": "1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.9",
+      "buildId": "rljhe22vpvhlbpzubsxv7xjwnu"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material",
+          "module": "material",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-tooling-preview",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "common-desktop-1.0.jar",
+          "url": "common-desktop-1.0.jar",
+          "size": 79133,
+          "sha512": "9b695ae6c6931469325a20b92d44342508cd2fb04bcdeb4ae56b16d227d6b944d23c611e70533f2d47a8ff953c714534265d151402d4f676227861ece96803c9",
+          "sha256": "1851f0265d3974614832021c38a1bfb55b5b5a7528dacf68af4adc9c90710197",
+          "sha1": "375d9b09a798a67c8bb7e683b3bace2751669f29",
+          "md5": "970ea78ece6adea5293100eeed5a60b0"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material",
+          "module": "material",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-tooling-preview",
+          "version": {
+            "requires": "1.0.0-alpha3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "common-desktop-1.0.jar",
+          "url": "common-desktop-1.0.jar",
+          "size": 79133,
+          "sha512": "9b695ae6c6931469325a20b92d44342508cd2fb04bcdeb4ae56b16d227d6b944d23c611e70533f2d47a8ff953c714534265d151402d4f676227861ece96803c9",
+          "sha256": "1851f0265d3974614832021c38a1bfb55b5b5a7528dacf68af4adc9c90710197",
+          "sha1": "375d9b09a798a67c8bb7e683b3bace2751669f29",
+          "md5": "970ea78ece6adea5293100eeed5a60b0"
+        }
+      ]
+    }
+  ]
+}

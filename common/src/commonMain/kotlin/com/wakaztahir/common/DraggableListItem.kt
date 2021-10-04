@@ -1,4 +1,4 @@
-package com.wakaztahir.draggablelist
+package com.wakaztahir.common
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

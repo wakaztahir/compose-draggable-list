@@ -1,4 +1,4 @@
-package com.wakaztahir.draggablelist
+package com.wakaztahir.common
 
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
@@ -60,7 +60,7 @@ fun <T> LazyListScope.draggableItems(
     scope: CoroutineScope,
     animationsEnabled: Boolean,
     updateAnimationsEnabled: (Boolean) -> Unit,
-    itemContent: @Composable LazyDraggableListScope.(T) -> Unit
+    itemContent: @Composable LazyDraggableItemScope.(T) -> Unit
 ) = draggableItemsIndexed(
     items = items,
     scope = scope,

@@ -8,7 +8,7 @@ plugins {
     id("kotlin-android-extensions")
 }
 
-group = "com.wakaztahir"
+group = "com.wakaztahir.draggable-list"
 version = "1.0"
 
 kotlin {

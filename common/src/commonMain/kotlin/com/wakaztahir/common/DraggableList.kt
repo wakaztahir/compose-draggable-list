@@ -1,4 +1,4 @@
-package com.wakaztahir.draggablelist
+package com.wakaztahir.common
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.gestures.Orientation
@@ -10,15 +10,17 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.*
 import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.Measured
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
 
-interface DraggableListScope {
-    val columnScope: ColumnScope
+interface DraggableListScope : ColumnScope {
     fun Modifier.dragger(): Modifier
 }
 
@@ -70,7 +72,17 @@ fun <T> DraggableListIndexed(
 
             val scope = remember(item) {
                 object : DraggableListScope {
-                    override val columnScope: ColumnScope = this@Column
+                    override fun Modifier.align(alignment: Alignment.Horizontal): Modifier =
+                        this@Column.run { Modifier.align(alignment) }
+
+                    override fun Modifier.alignBy(alignmentLineBlock: (Measured) -> Int): Modifier =
+                        this@Column.run { Modifier.alignBy(alignmentLineBlock) }
+
+                    override fun Modifier.alignBy(alignmentLine: VerticalAlignmentLine): Modifier =
+                        this@Column.run { Modifier.alignBy(alignmentLine) }
+
+                    override fun Modifier.weight(weight: Float, fill: Boolean): Modifier =
+                        this@Column.run { Modifier.weight(weight, fill) }
 
                     override fun Modifier.dragger(): Modifier {
                         return this.draggable(

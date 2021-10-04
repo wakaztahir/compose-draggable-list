@@ -1,4 +1,4 @@
-package com.wakaztahir.draggablelist
+package com.wakaztahir.common
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.gestures.Orientation
@@ -6,6 +6,7 @@ import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.*
@@ -17,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-interface LazyDraggableListScope {
+interface LazyDraggableItemScope : LazyItemScope {
     fun Modifier.dragger(): Modifier
 }
 
@@ -26,7 +27,7 @@ fun <T> LazyListScope.draggableItemsIndexed(
     scope: CoroutineScope,
     animationsEnabled: Boolean,
     updateAnimationsEnabled: (Boolean) -> Unit,
-    itemContent: @Composable LazyDraggableListScope.(Int, T) -> Unit
+    itemContent: @Composable LazyDraggableItemScope.(Int, T) -> Unit
 ) {
     itemsIndexed(items) { index, item ->
 
@@ -64,7 +65,16 @@ fun <T> LazyListScope.draggableItemsIndexed(
         }
 
         val scope = remember {
-            object : LazyDraggableListScope {
+            object : LazyDraggableItemScope {
+                override fun Modifier.fillParentMaxHeight(fraction: Float): Modifier=
+                    this@itemsIndexed.run { Modifier.fillParentMaxHeight(fraction) }
+
+                override fun Modifier.fillParentMaxSize(fraction: Float): Modifier =
+                    this@itemsIndexed.run { Modifier.fillParentMaxSize(fraction) }
+
+                override fun Modifier.fillParentMaxWidth(fraction: Float): Modifier =
+                    this@itemsIndexed.run { Modifier.fillParentMaxWidth(fraction) }
+
                 override fun Modifier.dragger(): Modifier {
                     return this.draggable(
                         verticalDraggableState,
