@@ -6,8 +6,8 @@ plugins {
     id("org.jetbrains.compose") version "1.0.0-alpha3"
 }
 
-group = "com.wakaztahir"
-version = "1.0"
+group = BuildConfig.Info.group
+version = BuildConfig.Info.version
 
 kotlin {
     jvm {
@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         val jvmMain by getting {
             dependencies {
-                implementation(project(":common"))
+                implementation(project(":draggablelist"))
                 implementation(compose.desktop.currentOs)
             }
         }
@@ -32,7 +32,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "jvm"
-            packageVersion = "1.0.0"
+            packageVersion = BuildConfig.Info.version
         }
     }
 }
