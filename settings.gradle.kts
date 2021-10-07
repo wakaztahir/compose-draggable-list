@@ -9,7 +9,7 @@ pluginManagement {
     
 }
 
-rootProject.name = "compose-draggable-list"
+rootProject.name = "draggablelist"
 
 include(":android")
 include(":desktop")

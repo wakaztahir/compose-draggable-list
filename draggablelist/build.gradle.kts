@@ -7,7 +7,8 @@ plugins {
     id("org.jetbrains.compose") version "1.0.0-alpha3"
     id("com.android.library")
     id("kotlin-android-extensions")
-    id("com.vanniktech.maven.publish")
+//    id("com.vanniktech.maven.publish")
+    id("maven-publish")
 }
 
 group = BuildConfig.Info.group
@@ -76,10 +77,10 @@ afterEvaluate {
     }
 }
 
-mavenPublish {
-    sonatypeHost = com.vanniktech.maven.publish.SonatypeHost.S01
-    releaseSigningEnabled = false
-}
+//mavenPublish {
+//    sonatypeHost = com.vanniktech.maven.publish.SonatypeHost.S01
+//    releaseSigningEnabled = false
+//}
 
 android {
     compileSdkVersion(BuildConfig.Android.compileSdkVersion)
