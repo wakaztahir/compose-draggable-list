@@ -1,3 +1,7 @@
+# Archived
+
+Use  [ComposeReorderable](https://github.com/aclassen/ComposeReorderable) , This library is still good and working if you want to look at the source code
+
 # Compose Draggable List
 
 Create a list of items in compose in which items can rearranged by dragging vertically
