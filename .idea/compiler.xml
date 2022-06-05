@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="compose-draggable-list.desktop.commonMain" target="11" />
+      <module name="compose-draggable-list.desktop.commonTest" target="11" />
+      <module name="compose-draggable-list.desktop.jvmMain" target="11" />
+      <module name="compose-draggable-list.desktop.jvmTest" target="11" />
+      <module name="compose-draggable-list.draggablelist.commonMain" target="11" />
+      <module name="compose-draggable-list.draggablelist.commonTest" target="11" />
+      <module name="compose-draggable-list.draggablelist.desktopMain" target="11" />
+      <module name="compose-draggable-list.draggablelist.desktopTest" target="11" />
+      <module name="draggable-list.common.commonMain" target="11" />
+      <module name="draggable-list.common.commonTest" target="11" />
+      <module name="draggable-list.common.desktopMain" target="11" />
+      <module name="draggable-list.common.desktopTest" target="11" />
+      <module name="draggable-list.desktop.commonMain" target="1.8" />
+      <module name="draggable-list.desktop.commonTest" target="1.8" />
+      <module name="draggable-list.desktop.jvmMain" target="1.8" />
+      <module name="draggable-list.desktop.jvmTest" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
